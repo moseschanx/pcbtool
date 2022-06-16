@@ -13,7 +13,8 @@ void  mil_to_milli(int sz , char** args)
 
   for(int i = 0;i<sz;++i)
   {
-    resul[i] = ((atof(args[i]))*25.4 / 1000); PRINTF(resul[i]);
+    resul[i] = ((atof(args[i]))*25.4 / 1000); 
+    printf("%.4f\t",resul[i]); 
     
   }
 
@@ -223,8 +224,29 @@ calculate:
   printf("Your padstack name is : ""\033[0;32m""%s ""\033[0;0m""\n",padstack_name);
   printf("\tDrill finished diameter \t:\t\t %.3f\n",drill_diam);
   printf("\tDrill figure diameter \t\t:\t\t %.3f\n",drill_diam-0.2);
-  printf("\tDesign layer - Pad diameter \t:\t\t %.3f\n",pad_diam);
+  printf("\tDesign layer - Pad diameter \t:\t\t ""\033[0;35m""%.3f""\033[0;0m""\n",pad_diam);
   printf("\tMask layer - Pad diameter \t:\t\t %.3f\n",solder_diam);
 
 }
 
+// Adhere to IPC-2222 standards fro minimum hole sizes
+/*
+  Once your component density classification has been determined , you should
+  use the following equations to comply with the IPC-2222 Standard for minimum hole size.
+
+    Level A Minimum Hole Size = maximum lead diameter + 0.25mm
+    Level B Minimum Hole Size = maximum lead diameter + 0.20mm
+    Level C Minimum Hole Size = maximum lead diameter + 0.25mm
+
+*/
+
+// Determine the pad sizes based on IPC-2221
+/*
+  After determining minumum hole size. Eqs.(444-6) from the IPC-2221 Standard should be used 
+  to determine pad diameter.
+
+    Level A Pad Diameter = minumum hole size + 0.1mm + 0.60mm
+    Level B Pad Diameter = minimum hole size + 0.1mm + 0.50mm
+    Level C Pad Diameter = minimum hole size + 0.1mm + 0.4mm
+
+*/

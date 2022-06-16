@@ -13,6 +13,7 @@ noreturn void error_exit()
  puts("\t\t -m : millimeter to mil.");
  puts("\t\t -M : mil to millimeter.");
  puts("\t\t -S : create a solder mask pattern for irregular patterns");
+ puts("\t\t -S : generate padstack informations for specified pin width");
  DBG(1,"Program Exit.");
  exit(EXIT_FAILURE);
 }
