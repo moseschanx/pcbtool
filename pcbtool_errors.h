@@ -18,6 +18,10 @@
         fprintf(stderr,"At file %s line %d : \t",__FILE__,__LINE__) ,fprintf(stderr ,"\033[0;33m"fmt"\n" COL_CLR , ##__VA_ARGS__ );\
         if(level == 3) \
         fprintf(stderr,"At file %s line %d : \t",__FILE__,__LINE__) ,fprintf(stderr ,"\033[0;31m"fmt"\n" COL_CLR , ##__VA_ARGS__ );\
+        /* 
+          Here ,due to histroical reasons , the ## before __VA_ARGS__ denotes that for incomplete arugment list , omitt the extra comma 
+        https://gcc.gnu.org/onlinedocs/cpp/Variadic-Macros.html
+        */
         }
 #else
     #define DBG(level , fmt , ...)
